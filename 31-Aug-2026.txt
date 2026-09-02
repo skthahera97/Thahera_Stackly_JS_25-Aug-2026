@@ -1,0 +1,290 @@
+31-Aug-2026 --- JavaScript Tasks
+==========================
+// Task 1 — var, let, const
+// 1. Create variables
+var studentName = "Thahera";
+let studentAge = 29;
+const collegeName = "JNTUA";
+
+// Print all values
+console.log("Student Name:", studentName);
+console.log("Student Age:", studentAge);
+console.log("College Name:", collegeName);
+
+// Change var value
+studentName = "Bhargavi";
+console.log("Changed Student Name:", studentName);
+
+// Change let value
+studentAge = 30;
+console.log("Changed Student Age:", studentAge);
+
+// Try changing const value
+collegeName ="SRM";
+console.log("Changed College Name:", collegeName);
+
+// const collegeName = "SRM";
+// collegeName = "JNTU";  // ❌ Error
+// A const variable cannot be reassigned.
+
+// var → can be changed and redeclared
+// let → can be changed, but cannot be redeclared in the same scope
+// const → cannot be reassigned or redeclared in the same scope
+// const = constant value/reference; no reassignment.
+
+// Task 2 — User Information
+const readline = require("readline-sync");
+
+let name = readline.question("Enter your name: ");
+let age = readline.question("Enter your age: ");
+let city = readline.question("Enter your city: ");
+
+console.log("Name:", name);
+console.log("Age:", age);
+console.log("City:", city);
+
+// Task 3 — Welcome Message
+// Get the user's name using prompt().
+// Display:
+// Welcome Thahera!
+// Use alert().
+
+// let name = prompt("Enter your name:");
+// alert("Welcome " + name + "!");
+// Task 3 — Welcome Message
+
+const readline = require("readline");
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Enter your name: ", function(name) {
+    console.log("Welcome " + name + "!");
+    rl.close();
+});
+
+// Task 4 — Age Calculator
+const readline = require("readline-sync");
+let birthYear = readline.question("Birth Year: ");
+let currentYear = 2026;
+let age = currentYear - birthYear;
+console.log("Age:", age);
+
+// Task 5 — Identify Data Types
+let a = "Hello";
+let b = 100;
+let c = 25.5;
+let d = true;
+let e = false;
+let f = undefined;
+let g = null;
+
+console.log(typeof a);
+console.log(typeof b);
+console.log(typeof c);
+console.log(typeof d);
+console.log(typeof e);
+console.log(typeof f);
+console.log(typeof g);
+
+// Task 6 — Student Data
+let student = {
+    name: "Thahera",
+    age: 29,
+    city: "Hyderabad",
+    qualification: "BTECH",
+    isStudent: false
+};
+
+console.log(student);
+console.log(student.name);
+console.log(student.age);
+console.log(student.qualification);
+console.log(student.isStudent);
+
+// Task 7 — Fruit Array
+let fruits = [
+    "Apple",
+    "Mango",
+    "Orange",
+    "Banana",
+    "Grapes",
+    "Papaya"
+];
+
+console.log("First fruit:", fruits[0]);
+console.log("Second fruit:", fruits[1]);
+console.log("Last fruit:", fruits[fruits.length - 1]);
+console.log("Total fruits:", fruits.length);
+
+// Arithmetic Operator Tasks
+// Task 8 — Basic Calculator
+let a = 20;
+let b = 5;
+
+console.log("Addition:", a + b);
+console.log("Subtraction:", a - b);
+console.log("Multiplication:", a * b);
+console.log("Division:", a / b);
+console.log("Modulus:", a % b);
+console.log("Exponentiation:", a ** b);
+
+// Task 9 — Shopping Bill
+let shirt = 999;
+let pant = 1499;
+let shoes = 1999;
+
+let total = shirt + pant + shoes;
+
+console.log("Total:", total);
+
+// Task 10 — Simple Marks Calculation
+let tamil = 80;
+let english = 75;
+let maths = 90;
+
+let total = tamil + english + maths;
+let average = total / 3;
+
+console.log("Total Marks:", total);
+console.log("Average Marks:", average);
+
+// Task 11 — Post Increment
+let a = 10;
+
+let b = a++;
+
+console.log(a);
+console.log(b);
+
+// Task 12 — Pre Increment
+let a = 10;
+
+let b = ++a;
+
+console.log(a);
+console.log(b);
+
+// Task 13 — Post Decrement
+let a = 20;
+
+let b = a--;
+
+console.log(a);
+console.log(b);
+
+// Task 14 — Pre Decrement
+let a = 20;
+
+let b = --a;
+
+console.log(a);
+console.log(b);
+
+// Task 15 — Find Final Values
+let a = 5;
+
+let b = a++;
+
+let c = ++a;
+
+let d = b--;
+
+console.log(a);
+console.log(b);
+console.log(c);
+console.log(d);
+
+
+// Step-by-step
+// a = 5
+// After:
+// 7
+// 4
+// 7
+// 5
+
+// Task 16 — Assignment Operators
+let num = 10;
+
+num += 5;
+
+console.log(num);
+
+// Task 17 — Mini Student Profile
+let name = "Thahera";
+let age = 29;
+let city = "Hyderabad";
+let college = "Osmania University";
+
+let subjects = [
+    "Python",
+    "JavaScript",
+    "SQL",
+    "Machine Learning",
+    "GenAI"
+];
+
+let student = {
+    name: name,
+    age: age,
+    city: city,
+    subjects: subjects,
+    isStudent: false
+};
+
+console.log("Student Name:", student.name);
+console.log("Student Age:", student.age);
+console.log("City:", student.city);
+console.log("First Subject:", student.subjects[0]);
+console.log("Last Subject:", student.subjects[student.subjects.length - 1]);
+console.log("Total Subjects:", student.subjects.length);
+console.log("Complete Object:", student);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Final Challenge — User + Calculator in Node.js
+
+const readline = require("readline");
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Enter first number: ", function(num1) {
+
+    rl.question("Enter second number: ", function(num2) {
+
+        let a = Number(num1);
+        let b = Number(num2);
+
+        console.log("Addition:", a + b);
+        console.log("Subtraction:", a - b);
+        console.log("Multiplication:", a * b);
+        console.log("Division:", a / b);
+        console.log("Modulus:", a % b);
+        console.log("Power:", a ** b);
+
+        rl.close();
+    });
+
+});
+
+// require("readline") → Load readline module | process.stdin → Get keyboard input 
+// | process.stdout → Display console output 
+// | rl.question() → Ask user for input | Number() → Convert string to number.
+
+
