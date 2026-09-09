@@ -1,0 +1,617 @@
+Task 1 — Student Result Analyzer
+Create a program that accepts a student's:
+Name
+Department
+5 subject marks
+Requirements:
+Calculate total marks
+Calculate average
+Find pass/fail
+Assign grade:
+90+ → A
+75–89 → B
+60–74 → C
+50–59 → D
+Below 50 → Fail
+Display the result using console.log()
+Concepts: variables, arithmetic operators, if/else, function
+
+
+function calculateResult(name, department, marks) {
+    let total = marks.reduce((a, b) => a + b, 0);
+    let average = total / marks.length;
+
+    let result = average >= 50 ? "PASS" : "FAIL";
+    let grade = average >= 90 ? "A" :
+                average >= 75 ? "B" :
+                average >= 60 ? "C" :
+                average >= 50 ? "D" : "Fail";
+
+    console.log("Name:", name);
+    console.log("Department:", department);
+    console.log("Marks:", marks);
+    console.log("Total:", total);
+    console.log("Average:", average);
+    console.log("Result:", result);
+    console.log("Grade:", grade);
+}
+
+calculateResult("Thahera", "Computer Science", [85, 90, 78, 88, 92]);
+
+Output:
+PS C:\Users\DELL\Desktop\Thahera\Java_Script_Batch39\Task_06_JS_09-Sep-2026> node task1.js
+Name: Thahera
+Department: Computer Science
+Marks: [ 85, 90, 78, 88, 92 ]
+Total: 433
+Average: 86.6
+Result: PASS
+Grade: B
+
+
+Task 2 — Employee Salary Calculator
+Create an employee object:
+{
+    name: "Arun",
+    role: "Developer",
+    salary: 45000,
+    experience: 2
+}
+Calculate:
+Basic salary
+10% bonus if experience ≥ 2
+15% bonus if experience ≥ 5
+Final salary
+Use a function:
+calculateSalary(employee)
+Concepts: objects, functions, conditions, arithmetic.
+
+let employee = {
+    name: "Thahera",
+    role: "Developer",
+    salary: 45000,
+    experience: 2
+};
+
+function calculateSalary(e) {
+    let bonus = e.experience >= 5 ? e.salary * 0.15 :
+                e.experience >= 2 ? e.salary * 0.10 : 0;
+
+    let finalSalary = e.salary + bonus;
+
+    console.log("Name:", e.name);
+    console.log("Role:", e.role);
+    console.log("Basic Salary:", e.salary);
+    console.log("Bonus:", bonus);
+    console.log("Final Salary:", finalSalary);
+}
+
+calculateSalary(employee);
+
+Output:
+PS C:\Users\DELL\Desktop\Thahera\Java_Script_Batch39\Task_06_JS_09-Sep-2026> node task2.js
+Name: Thahera
+Role: Developer
+Basic Salary: 45000
+Bonus: 4500
+
+Task 3 — Product Filter System
+Create an array:
+let products = [
+    { name: "Laptop", price: 55000, category: "electronics" },
+    { name: "Mouse", price: 800, category: "electronics" },
+    { name: "Shirt", price: 1200, category: "fashion" },
+    { name: "Shoes", price: 2500, category: "fashion" },
+    { name: "Phone", price: 30000, category: "electronics" }
+];
+Perform:
+Get products above ₹2,000
+Get only electronics
+Find the first product below ₹1,000
+Calculate total price of all products
+Check whether any product costs more than ₹50,000
+Check whether every product has a price above ₹500
+Concepts: filter(), find(), reduce(), some(), every().
+
+
+let products = [
+    {name:"Laptop", price:55000, category:"electronics"},
+    {name:"Mouse", price:800, category:"electronics"},
+    {name:"Shirt", price:1200, category:"fashion"},
+    {name:"Shoes", price:2500, category:"fashion"},
+    {name:"Phone", price:30000, category:"electronics"}
+];
+
+console.log("Above 2000:", products.filter(p => p.price > 2000));
+console.log("Electronics:", products.filter(p => p.category === "electronics"));
+console.log("Below 1000:", products.find(p => p.price < 1000));
+console.log("Total:", products.reduce((sum,p) => sum + p.price, 0));
+console.log("Any above 50000:", products.some(p => p.price > 50000));
+console.log("All above 500:", products.every(p => p.price > 500));
+
+Output:
+
+PS C:\Users\DELL\Desktop\Thahera\Java_Script_Batch39\Task_06_JS_09-Sep-2026> node task3.js  
+Above 2000: [
+  { name: 'Laptop', price: 55000, category: 'electronics' },
+  { name: 'Shoes', price: 2500, category: 'fashion' },
+  { name: 'Phone', price: 30000, category: 'electronics' }
+]
+Electronics: [
+  { name: 'Laptop', price: 55000, category: 'electronics' },
+  { name: 'Mouse', price: 800, category: 'electronics' },
+  { name: 'Phone', price: 30000, category: 'electronics' }
+]
+Below 1000: { name: 'Mouse', price: 800, category: 'electronics' }
+Total: 89500
+Any above 50000: true
+All above 500: true
+
+
+Task 4 — Employee Management
+Create an array of 6 employees.
+Each employee should have:
+{
+    id: 101,
+    name: "Kavin",
+    role: "Frontend Developer",
+    salary: 40000
+}
+Perform:
+Display all employee names
+Display employees earning above ₹40,000
+Find employee with ID 103
+Calculate total salary
+Find highest-paid employee
+Sort employees from highest salary to lowest
+Create a new array containing only employee names
+Concepts: objects, arrays, map(), filter(), find(), reduce(), sort().
+
+let employees = [
+    {id:101, name:"Kavin", role:"Frontend Developer", salary:40000},
+    {id:102, name:"Arun", role:"Backend Developer", salary:55000},
+    {id:103, name:"Priya", role:"Data Scientist", salary:65000},
+    {id:104, name:"Dinesh", role:"Tester", salary:35000},
+    {id:105, name:"Rahul", role:"DevOps Engineer", salary:60000},
+    {id:106, name:"Meena", role:"HR Manager", salary:45000}
+];
+
+console.log("Names:", employees.map(e => e.name));
+console.log("Above 40000:", employees.filter(e => e.salary > 40000));
+console.log("ID 103:", employees.find(e => e.id === 103));
+console.log("Total Salary:", employees.reduce((sum,e) => sum + e.salary, 0));
+
+let highest = employees.reduce((a,b) => a.salary > b.salary ? a : b);
+console.log("Highest Paid:", highest);
+
+console.log("High to Low:",
+    [...employees].sort((a,b) => b.salary - a.salary)
+);
+
+
+Output:
+PS C:\Users\DELL\Desktop\Thahera\Java_Script_Batch39\Task_06_JS_09-Sep-2026> node task4.js  
+Names: [ 'Kavin', 'Arun', 'Priya', 'Dinesh', 'Rahul', 'Meena' ]
+Above 40000: [
+  { id: 102, name: 'Arun', role: 'Backend Developer', salary: 55000 },
+  { id: 103, name: 'Priya', role: 'Data Scientist', salary: 65000 },
+  { id: 105, name: 'Rahul', role: 'DevOps Engineer', salary: 60000 },
+  { id: 106, name: 'Meena', role: 'HR Manager', salary: 45000 }
+]
+ID 103: { id: 103, name: 'Priya', role: 'Data Scientist', salary: 65000 }
+Total Salary: 300000
+Highest Paid: { id: 103, name: 'Priya', role: 'Data Scientist', salary: 65000 }
+High to Low: [
+  { id: 103, name: 'Priya', role: 'Data Scientist', salary: 65000 },
+  { id: 105, name: 'Rahul', role: 'DevOps Engineer', salary: 60000 },
+  { id: 102, name: 'Arun', role: 'Backend Developer', salary: 55000 },
+  { id: 106, name: 'Meena', role: 'HR Manager', salary: 45000 },
+  { id: 101, name: 'Kavin', role: 'Frontend Developer', salary: 40000 },
+  { id: 104, name: 'Dinesh', role: 'Tester', salary: 35000 }
+]
+
+Task 5 — Shopping Cart
+Create:
+let cart = [
+    { name: "Laptop", price: 50000, quantity: 1 },
+    { name: "Mouse", price: 1000, quantity: 2 },
+    { name: "Keyboard", price: 2000, quantity: 1 }
+];
+Calculate:
+Item total:
+price × quantity
+Then calculate:
+Total cart value
+10% discount if total > ₹50,000
+Final payable amount
+Create a function:
+calculateCart(cart)
+Concepts: objects, functions, reduce(), conditions.
+
+let cart = [
+    {name:"Laptop", price:50000, quantity:1},
+    {name:"Mouse", price:1000, quantity:2},
+    {name:"Keyboard", price:2000, quantity:1}
+];
+
+function calculateCart(cart) {
+    let total = cart.reduce((sum, item) =>
+        sum + item.price * item.quantity, 0);
+
+    let discount = total > 50000 ? total * 0.10 : 0;
+    let finalAmount = total - discount;
+
+    console.log("Total:", total);
+    console.log("Discount:", discount);
+    console.log("Final Amount:", finalAmount);
+}
+
+calculateCart(cart);
+
+
+Output:
+PS C:\Users\DELL\Desktop\Thahera\Java_Script_Batch39\Task_06_JS_09-Sep-2026> node task5.js  
+Total: 54000
+Discount: 5400
+Final Amount: 48600
+
+Task 6 — Student Search System
+Create an array of students:
+let students = [
+    { name: "Arun", age: 21, mark: 85 },
+    { name: "Priya", age: 22, mark: 92 },
+    { name: "Karthi", age: 20, mark: 67 },
+    { name: "Dinesh", age: 23, mark: 45 }
+];
+Requirements:
+Display all student names
+Display students who scored above 80
+Find student named "Priya"
+Calculate average mark
+Check whether anyone failed
+Check whether everyone scored above 40
+Sort students by marks
+
+
+let students = [
+    {name:"Arun", age:21, mark:85},
+    {name:"Priya", age:22, mark:92},
+    {name:"Karthi", age:20, mark:67},
+    {name:"Dinesh", age:23, mark:45}
+];
+
+console.log("Names:", students.map(s => s.name));
+console.log("Above 80:", students.filter(s => s.mark > 80));
+console.log("Priya:", students.find(s => s.name === "Priya"));
+
+let avg = students.reduce((sum,s) => sum + s.mark, 0) / students.length;
+console.log("Average:", avg);
+
+console.log("Anyone Failed:", students.some(s => s.mark < 50));
+console.log("Everyone Above 40:", students.every(s => s.mark > 40));
+console.log("Sorted:", [...students].sort((a,b) => b.mark - a.mark));
+
+
+Output:
+PS C:\Users\DELL\Desktop\Thahera\Java_Script_Batch39\Task_06_JS_09-Sep-2026> node task6.js  
+Names: [ 'Arun', 'Priya', 'Karthi', 'Dinesh' ]
+Above 80: [
+  { name: 'Arun', age: 21, mark: 85 },
+  { name: 'Priya', age: 22, mark: 92 }
+]
+Priya: { name: 'Priya', age: 22, mark: 92 }
+Average: 72.25
+Anyone Failed: true
+Everyone Above 40: true
+Sorted: [
+  { name: 'Priya', age: 22, mark: 92 },
+  { name: 'Arun', age: 21, mark: 85 },
+  { name: 'Karthi', age: 20, mark: 67 },
+  { name: 'Dinesh', age: 23, mark: 45 }
+]
+
+
+
+Task 7 — Array Transformation Challenge
+Given:
+let numbers = [12, 5, 8, 21, 44, 7, 30, 15];
+Perform:
+Create a new array containing numbers × 2
+Get only even numbers
+Get numbers greater than 15
+Find the first number greater than 20
+Find total of all numbers
+Check whether any number is greater than 40
+Check whether every number is positive
+Sort from highest to lowest
+Restriction: Use array higher-order methods wherever possible.
+
+let numbers = [12, 5, 8, 21, 44, 7, 30, 15];
+
+console.log("×2:", numbers.map(n => n * 2));
+console.log("Even:", numbers.filter(n => n % 2 === 0));
+console.log(">15:", numbers.filter(n => n > 15));
+console.log("First >20:", numbers.find(n => n > 20));
+console.log("Total:", numbers.reduce((sum,n) => sum + n, 0));
+console.log("Any >40:", numbers.some(n => n > 40));
+console.log("All Positive:", numbers.every(n => n > 0));
+console.log("High to Low:", [...numbers].sort((a,b) => b - a));
+
+
+Output:
+PS C:\Users\DELL\Desktop\Thahera\Java_Script_Batch39\Task_06_JS_09-Sep-2026> node task7.js  
+×2: [
+  24, 10, 16, 42,
+  88, 14, 60, 30
+]
+Even: [ 12, 8, 44, 30 ]
+>15: [ 21, 44, 30 ]
+First >20: 21
+Total: 142
+Any >40: true
+All Positive: true
+High to Low: [
+  44, 30, 21, 15,
+  12,  8,  7,  5
+]
+
+
+Task 8 — String Analyzer
+Ask the user to enter a sentence.
+Example:
+"JavaScript is very powerful"
+Display:
+Total characters
+Uppercase sentence
+Lowercase sentence
+Whether it contains "JavaScript"
+First character
+Last character
+Number of words
+Replace "JavaScript" with "Python"
+Convert sentence into an array using split()
+Concepts: length, includes(), slice(), toUpperCase(), toLowerCase(), replace(), split().
+
+// Task 8: String Analyzer
+
+const readline = require("readline");
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Enter a sentence: ", function(sentence) {
+
+    console.log("----- String Analyzer -----");
+
+    // Total characters
+    console.log("Total Characters:", sentence.length);
+
+    // Uppercase
+    console.log("Uppercase:", sentence.toUpperCase());
+
+    // Lowercase
+    console.log("Lowercase:", sentence.toLowerCase());
+
+    // Contains JavaScript
+    console.log(
+        'Contains "JavaScript":',
+        sentence.includes("JavaScript")
+    );
+
+    // First character
+    console.log(
+        "First Character:",
+        sentence.slice(0, 1)
+    );
+
+    // Last character
+    console.log(
+        "Last Character:",
+        sentence.slice(-1)
+    );
+
+    // Number of words
+    let words = sentence.trim().split(/\s+/);
+
+    console.log("Number of Words:", words.length);
+
+    // Replace JavaScript with Python
+    console.log(
+        "Replace JavaScript:",
+        sentence.replace("JavaScript", "Python")
+    );
+
+    // Convert sentence into array
+    console.log("Sentence Array:");
+    console.log(sentence.split(" "));
+
+    rl.close();
+});
+
+
+Output:
+PS C:\Users\DELL\Desktop\Thahera\Java_Script_Batch39\Task_06_JS_09-Sep-2026> node task8.js  
+Enter a sentence: My name is thehera
+----- String Analyzer -----
+Total Characters: 18
+Uppercase: MY NAME IS THEHERA
+Lowercase: my name is thehera
+Contains "JavaScript": false
+First Character: M
+Last Character: a
+Number of Words: 4
+Replace JavaScript: My name is thehera
+Sentence Array:
+[ 'My', 'name', 'is', 'thehera' ]
+
+🔥 Final Mini Project — Employee Dashboard
+
+
+let employees = [
+    {id:101,name:"Thahera",department:"IT",salary:45000,experience:2},
+    {id:102,name:"Bhargavi",department:"HR",salary:50000,experience:4},
+    {id:103,name:"Dharani",department:"IT",salary:65000,experience:6}
+];
+
+function dashboard() {
+    console.log("Employees:", employees);
+
+    console.log("Search Priya:",
+        employees.find(e => e.name.toLowerCase() === "priya"));
+
+    console.log("IT Employees:",
+        employees.filter(e => e.department === "IT"));
+
+    console.log("Salary > 50000:",
+        employees.filter(e => e.salary > 50000));
+
+    let total = employees.reduce((sum,e) => sum + e.salary, 0);
+    console.log("Total Salary:", total);
+
+    console.log("Highest Salary:",
+        employees.reduce((a,b) => a.salary > b.salary ? a : b));
+
+    console.log("Experience > 3:",
+        employees.filter(e => e.experience > 3));
+
+    console.log("Low to High:",
+        [...employees].sort((a,b) => a.salary - b.salary));
+
+    console.log("High to Low:",
+        [...employees].sort((a,b) => b.salary - a.salary));
+
+    console.log("Total Employees:", employees.length);
+    console.log("Average Salary:", Math.round(total / employees.length));
+}
+
+dashboard();
+
+
+Output:
+PS C:\Users\DELL\Desktop\Thahera\Java_Script_Batch39\Task_06_JS_09-Sep-2026> node project.js  
+Employees: [
+  {
+    id: 101,
+    name: 'Thahera',
+    department: 'IT',
+    salary: 45000,
+    experience: 2
+  },
+  {
+    id: 102,
+    name: 'Bhargavi',
+    department: 'HR',
+    salary: 50000,
+    experience: 4
+  },
+  {
+    id: 103,
+    name: 'Dharani',
+    department: 'IT',
+    salary: 65000,
+    experience: 6
+  }
+]
+Search Priya: undefined
+IT Employees: [
+  {
+    id: 101,
+    name: 'Thahera',
+    department: 'IT',
+    salary: 45000,
+    experience: 2
+  },
+  {
+    id: 103,
+    name: 'Dharani',
+    department: 'IT',
+    salary: 65000,
+    experience: 6
+  }
+]
+Salary > 50000: [
+  {
+    id: 103,
+    name: 'Dharani',
+    department: 'IT',
+    salary: 65000,
+    experience: 6
+  }
+]
+Total Salary: 160000
+Highest Salary: {
+  id: 103,
+  name: 'Dharani',
+  department: 'IT',
+  salary: 65000,
+  experience: 6
+}
+Experience > 3: [
+  {
+    id: 102,
+    name: 'Bhargavi',
+    department: 'HR',
+    salary: 50000,
+    experience: 4
+  },
+  {
+    id: 103,
+    name: 'Dharani',
+    department: 'IT',
+    salary: 65000,
+    experience: 6
+  }
+]
+Low to High: [
+  {
+    id: 101,
+    name: 'Thahera',
+    department: 'IT',
+    salary: 45000,
+    experience: 2
+  },
+  {
+    id: 102,
+    name: 'Bhargavi',
+    department: 'HR',
+    salary: 50000,
+    experience: 4
+  },
+  {
+    id: 103,
+    name: 'Dharani',
+    department: 'IT',
+    salary: 65000,
+    experience: 6
+  }
+]
+High to Low: [
+  {
+    id: 103,
+    name: 'Dharani',
+    department: 'IT',
+    salary: 65000,
+    experience: 6
+  },
+  {
+    id: 102,
+    name: 'Bhargavi',
+    department: 'HR',
+    salary: 50000,
+    experience: 4
+  },
+  {
+    id: 101,
+    name: 'Thahera',
+    department: 'IT',
+    salary: 45000,
+    experience: 2
+  }
+]
+Total Employees: 3
+Average Salary: 53333
+
+
+
